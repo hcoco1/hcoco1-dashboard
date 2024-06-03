@@ -1,0 +1,91 @@
+/* Container styles */
+.container {
+    display: grid;
+    grid-template-columns: repeat(11, 1fr);
+    grid-template-rows: auto;
+    grid-template-areas: 
+        "Title Title Title Title Title Title Title Average-Grade Average-Grade Image Image"
+        "DropdownMenus DropdownMenus DropdownMenus DropdownMenus DropdownMenus DropdownMenus DropdownMenus DropdownMenus DropdownMenus Image Image"
+        "Summary-Table Summary-Table Summary-Table Summary-Table Summary-Table Summary-Table Summary-Table Summary-Table Summary-Table Summary-Table Summary-Table"
+        "Summary-Chart Summary-Chart Summary-Chart Summary-Chart Summary-Chart Summary-Chart Summary-Chart Summary-Chart Summary-Chart Summary-Chart Summary-Chart"
+        "Subjects Subjects Subjects Subjects Subjects Subjects Subjects Subjects Subjects Subjects Subjects"
+        "Subjects Subjects Subjects Subjects Subjects Subjects Subjects Subjects Subjects Subjects Subjects"
+        "Subjects Subjects Subjects Subjects Subjects Subjects Subjects Subjects Subjects Subjects Subjects";
+    gap: 10px;
+    padding: 10px;
+    background-color: #e9ecef;
+}
+
+/* Grid area styles */
+.Title { grid-area: Title; }
+.Average-Grade { grid-area: Average-Grade; }
+.DropdownMenus {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-areas: 
+        "Language-Dropdown Student-Dropdown Grade-dropdown"
+        "Language-Dropdown Student-Dropdown Grade-dropdown"
+        "Language-Dropdown Student-Dropdown Grade-dropdown";
+    gap: 10px;
+    grid-area: DropdownMenus;
+}
+.Language-Dropdown { grid-area: Language-Dropdown; }
+.Student-Dropdown { grid-area: Student-Dropdown; }
+.Grade-dropdown { grid-area: Grade-dropdown; }
+.Summary-Table { grid-area: Summary-Table; }
+.Summary-Chart { grid-area: Summary-Chart; }
+.Subjects {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: auto;
+    grid-template-areas: 
+        "Subjects-Dropdown Subjects-Dropdown Subjects-Dropdown"
+        "Subject-Table Subject-Table Subject-Table"
+        "Subjects-Chart Subjects-Chart Subjects-Chart";
+    gap: 10px;
+    grid-area: Subjects;
+}
+.Subjects-Dropdown { grid-area: Subjects-Dropdown; }
+.Subject-Table { grid-area: Subject-Table; }
+.Subjects-Chart { grid-area: Subjects-Chart; }
+.Image { grid-area: Image; }
+
+/* Card styles */
+.card {
+    background-color: #ffffff;
+    padding: 10px;
+}
+
+/* Responsive behavior */
+@media (max-width: 768px) {
+    .container {
+        grid-template-columns: 1fr;
+        grid-template-areas: 
+            "Title"
+            "Average-Grade"
+            "DropdownMenus"
+            "Summary-Table"
+            "Summary-Chart"
+            "Subjects";
+    }
+    .Image {
+        display: none;
+    }
+    .DropdownMenus {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+        grid-template-areas: 
+            "Language-Dropdown"
+            "Student-Dropdown"
+            "Grade-dropdown";
+    }
+    .Subjects {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+        grid-template-areas: 
+            "Subjects-Dropdown"
+            "Subject-Table"
+            "Subjects-Chart";
+    }
+}
