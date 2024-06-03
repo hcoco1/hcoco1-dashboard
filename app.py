@@ -10,6 +10,9 @@ app = dash.Dash(__name__, external_stylesheets=[dbc.themes.BOOTSTRAP])
 # Read data from Excel file
 df = pd.read_excel('data.xlsx')
 
+# Print columns to verify
+print(df.columns)
+
 # Ensure grades are numeric
 for col in df.columns[3:]:
     df[col] = pd.to_numeric(df[col], errors="coerce")
@@ -38,14 +41,14 @@ df["Grade Average"] = df[subjects].mean(axis=1).round(0)
 
 # Prepare the summary table with only final grades
 summary_df = df[
-    ["Name", "Year"] + subjects + ["Grade Average"]
+    ["Name", "Year", "Image URL"] + subjects + ["Grade Average"]
 ]
 
 # Set the app layout
 app.layout = main_layout.create_layout(summary_df)
 
 # Register callbacks
-main_callbacks.register_callbacks(app, summary_df)
+main_callbacks.register_callbacks(app, df)
 
 # Run the app
 if __name__ == '__main__':

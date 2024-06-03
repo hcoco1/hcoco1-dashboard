@@ -7,7 +7,7 @@ def create_layout(df):
         className='container',
         children=[
             dbc.Card(
-                dbc.CardBody(html.H1("Student Performance Dashboard")),
+                dbc.CardBody(html.H1("Student Performance Dashboard", style={'text-align': 'center'})),
                 className='Title card'
             ),
             html.Div(
@@ -19,7 +19,11 @@ def create_layout(df):
                 ]
             ),
             dbc.Card(
-                dbc.CardBody(html.Img(src='https://via.placeholder.com/300', className='Image', style={'width': '100%', 'height': 'auto'})),
+                dbc.CardBody([
+                    html.H4(id='student-name', className='StudentName', style={'text-align': 'center'}),
+                    html.Img(id='student-image', className='Image', style={'width': '100%', 'height': 'auto'}),
+                    html.H6(id='student-average', className='StudentAverage', style={'text-align': 'center'})
+                ]),
                 className='Image card'
             ),
             dbc.Card(
