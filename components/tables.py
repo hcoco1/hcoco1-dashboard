@@ -1,6 +1,6 @@
 from dash import dash_table
 
-def create_summary_table():
+def create_summary_table(df):
     return dash_table.DataTable(
         id='summary-table',
         columns=[
@@ -17,15 +17,17 @@ def create_summary_table():
             {"name": "Participation", "id": "Participacion"},
             {"name": "Average", "id": "Grade Average"}
         ],
-        data=[],
+        data=df.to_dict('records'),
         page_size=10,
     )
 
 def subject_table():
-    # Placeholder function, you can customize this further based on your needs
     return dash_table.DataTable(
         id='subject-table',
-        columns=[{"name": "Subject", "id": "subject"}],
+        columns=[
+            {"name": "Subject", "id": "Subject"},
+            {"name": "Average Grade", "id": "Average Grade"}
+        ],
         data=[],
         page_size=10,
     )

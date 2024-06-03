@@ -25,7 +25,7 @@ def create_grade_dropdown(df):
                 id='grade-dropdown',
                 options=[{'label': grade, 'value': grade} for grade in grades],
                 placeholder="Select a Grade",
-                value='K',  # Set default value here
+                value=grades[4],  # Set default value here
             )
         ]),
         className='Grade-dropdown card'

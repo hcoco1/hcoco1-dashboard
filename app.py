@@ -27,20 +27,18 @@ subjects = [
     "Participacion",
 ]
 for subject in subjects:
-    df[f"{subject}"] = (
+    df[subject] = (
         df[[f"{subject} Exam 1", f"{subject} Exam 2", f"{subject} Exam 3"]]
         .mean(axis=1)
         .round(0)
     )
 
 # Calculate the final grade average across all subjects
-df["Grade Average"] = df[[f"{subject}" for subject in subjects]].mean(axis=1).round(0)
+df["Grade Average"] = df[subjects].mean(axis=1).round(0)
 
 # Prepare the summary table with only final grades
 summary_df = df[
-    ["Name", "Year"]
-    + [f"{subject}" for subject in subjects]
-    + ["Grade Average"]
+    ["Name", "Year"] + subjects + ["Grade Average"]
 ]
 
 # Set the app layout

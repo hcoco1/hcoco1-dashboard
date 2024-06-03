@@ -1,6 +1,6 @@
-from dash import html
+from dash import html, dcc
 import dash_bootstrap_components as dbc
-from components import dropdowns, graphs, tables
+from components import dropdowns, tables
 
 def create_layout(df):
     return html.Div(
@@ -10,15 +10,11 @@ def create_layout(df):
                 dbc.CardBody(html.H1("Student Performance Dashboard")),
                 className='Title card'
             ),
-            dbc.Card(
-                dbc.CardBody(html.Div("Average Grade Placeholder")),
-                className='Average-Grade card'
-            ),
             html.Div(
                 className='DropdownMenus',
                 children=[
                     dropdowns.language_dropdown,
-                    dropdowns.create_student_dropdown(df, default_value='John Doe'),
+                    dropdowns.create_student_dropdown(df),
                     dropdowns.create_grade_dropdown(df)
                 ]
             ),
@@ -27,12 +23,12 @@ def create_layout(df):
                 className='Image card'
             ),
             dbc.Card(
-                dbc.CardBody(tables.create_summary_table()),
+                dbc.CardBody(tables.create_summary_table(df)),
                 className='Summary-Table card'
             ),
             dbc.Card(
                 dbc.CardBody(
-                    graphs.create_sample_graph(df)
+                    dcc.Graph(id='sample-graph')
                 ),
                 className='Summary-Chart card'
             ),
@@ -41,7 +37,12 @@ def create_layout(df):
                 children=[
                     dropdowns.subject_dropdown,
                     tables.subject_table(),
-                    graphs.create_subject_chart(df)
+                    dbc.Card(
+                        dbc.CardBody(
+                            dcc.Graph(id='subject-chart')
+                        ),
+                        className='Subject-Chart card'
+                    )
                 ]
             )
         ]
