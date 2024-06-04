@@ -10,8 +10,6 @@ app = dash.Dash(__name__, external_stylesheets=[dbc.themes.BOOTSTRAP])
 # Read data from Excel file
 df = pd.read_excel('data.xlsx')
 
-# Print columns to verify
-print(df.columns)
 
 # Ensure grades are numeric
 for col in df.columns[3:]:

@@ -39,14 +39,9 @@ def create_layout(df):
             html.Div(
                 className='Subjects',
                 children=[
-                    dropdowns.subject_dropdown,
-                    tables.subject_table(),
-                    dbc.Card(
-                        dbc.CardBody(
-                            dcc.Graph(id='subject-chart')
-                        ),
-                        className='Subject-Chart card'
-                    )
+                    html.Div(dropdowns.create_subject_dropdown(), className='Subjects-Dropdown'),
+                    html.Div(tables.create_exam_results_table(), className='Subject-Table'),
+                    html.Div(dcc.Graph(id='exam-results-chart'), className='Subjects-Chart')
                 ]
             )
         ]

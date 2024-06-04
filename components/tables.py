@@ -30,7 +30,6 @@ def create_summary_table(df):
             'padding': '5px',
             'whiteSpace': 'normal',
             'height': 'auto',
-            'textAlign': 'center'
         },
         style_data={
             'color': 'black',
@@ -44,12 +43,13 @@ def create_summary_table(df):
         ]
     )
 
-def subject_table():
+def create_exam_results_table():
     return dash_table.DataTable(
-        id='subject-table',
+        id='exam-results-table',
         columns=[
-            {"name": "Subject", "id": "Subject"},
-            {"name": "Average Grade", "id": "Average Grade"}
+            {"name": "Exam 1", "id": "Exam 1"},
+            {"name": "Exam 2", "id": "Exam 2"},
+            {"name": "Exam 3", "id": "Exam 3"}
         ],
         data=[],
         page_size=10,
@@ -64,12 +64,10 @@ def subject_table():
             'padding': '5px',
             'whiteSpace': 'normal',
             'height': 'auto',
-            'textAlign': 'center'
         },
         style_data={
             'color': 'black',
-            'backgroundColor': 'white',
-            'textAlign': 'center'
+            'backgroundColor': 'white'
         },
         style_data_conditional=[
             {
