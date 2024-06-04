@@ -16,7 +16,7 @@ def register_callbacks(app, df):
 
     @app.callback(
         [Output('student-image', 'src'),
-        
+        Output('student-name', 'children'),
          
          Output('final-average', 'children')],
         [Input('student-dropdown', 'value')]
@@ -27,10 +27,10 @@ def register_callbacks(app, df):
         filtered_df = df[df['Name'] == selected_student]
         if not filtered_df.empty:
             image_url = filtered_df['Image URL'].values[0] if 'Image URL' in filtered_df.columns else 'https://via.placeholder.com/300'
-            
+            student_name = selected_student
             
             final_average = f"Final Average: {filtered_df['Final Average'].values[0]}"
-            return image_url, final_average
+            return image_url, student_name, final_average
         return 'https://via.placeholder.com/300', selected_student, "Average Grade: N/A", "Final Average: N/A"
 
     @app.callback(

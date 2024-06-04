@@ -8,7 +8,13 @@ def create_layout(df):
         className='container',
         children=[
             dbc.Card(
-                dbc.CardBody(html.H3("Student Performance Dashboard", style={'text-align': 'center'})),
+                dbc.CardBody(
+                    children=[
+                    html.H3("Student Performance Dashboard", style={'text-align': 'center'}),
+                    html.H5("Grading Scale: 0 - 20", style={'text-align': 'center'})
+                    ]
+                    
+                    ),
                 className='Title card',
                 
                 
@@ -23,7 +29,7 @@ def create_layout(df):
             ),
            dbc.Card(
                 dbc.CardBody([
-                   
+                    html.H6(id='student-name', className='StudentName', style={'text-align': 'center'}),
                     html.Img(id='student-image', className='Image', style={'width': '100%',}),
                     html.H6(id='final-average', className='FinalAverage', style={'text-align': 'center'})
                 ]),

@@ -5,7 +5,7 @@ def create_student_dropdown(df, default_value=None):
     students = df['Name'].unique()
     return dbc.Card(
         dbc.CardBody([
-            html.Label("Student"),
+            html.H4("Student"),
             dcc.Dropdown(
                 id='student-dropdown',
                 options=[{'label': student, 'value': student} for student in students],
@@ -20,7 +20,7 @@ def create_grade_dropdown(df):
     grades = df['Year'].unique()
     return dbc.Card(
         dbc.CardBody([
-            html.Label("Grade"),
+            html.H4("Grade"),
             dcc.Dropdown(
                 id='grade-dropdown',
                 options=[{'label': grade, 'value': grade} for grade in grades],
@@ -38,7 +38,7 @@ def create_subject_dropdown():
     ]
     return dbc.Card(
         dbc.CardBody([
-            html.Label("Subject"),
+            html.H4("Subject"),
             dcc.Dropdown(
                 id='subject-dropdown',
                 options=[{'label': subject, 'value': subject} for subject in subjects],
@@ -51,7 +51,7 @@ def create_subject_dropdown():
 
 language_dropdown = dbc.Card(
     dbc.CardBody([
-        html.Label("Language"),
+        html.H4("Language"),
         dcc.Dropdown(
             id='language-dropdown',
             options=[
