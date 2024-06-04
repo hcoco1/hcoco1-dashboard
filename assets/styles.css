@@ -2,7 +2,7 @@
 .container {
     display: grid;
     grid-template-columns: repeat(11, 1fr);
-    grid-template-rows: auto;
+    grid-template-rows: 0.1fr 0.2fr 0.2fr 0.8fr 0.2fr 0.2fr 0.1fr;
     grid-template-areas: 
         "Title Title Title Title Title Title Title Title Title Image Image"
         "DropdownMenus DropdownMenus DropdownMenus DropdownMenus DropdownMenus DropdownMenus DropdownMenus DropdownMenus DropdownMenus Image Image"
@@ -15,7 +15,10 @@
 }
 
 /* Grid area styles */
-.Title { grid-area: Title; }
+.Title { 
+    grid-area: Title; 
+   
+}
 .Average-Grade { grid-area: Average-Grade; }
 .DropdownMenus {
     display: grid;
@@ -36,7 +39,7 @@
 .Subjects {
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: auto;
+    grid-template-rows: 0.1fr;
     grid-template-areas: 
         "Subjects-Dropdown"
         "Subject-Table"

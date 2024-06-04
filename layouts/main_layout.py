@@ -2,13 +2,16 @@ from dash import html, dcc
 import dash_bootstrap_components as dbc
 from components import dropdowns, tables
 
+
 def create_layout(df):
     return html.Div(
         className='container',
         children=[
             dbc.Card(
-                dbc.CardBody(html.H1("Student Performance Dashboard", style={'text-align': 'center'})),
-                className='Title card'
+                dbc.CardBody(html.H3("Student Performance Dashboard", style={'text-align': 'center'})),
+                className='Title card',
+                
+                
             ),
             html.Div(
                 className='DropdownMenus',
@@ -20,8 +23,8 @@ def create_layout(df):
             ),
            dbc.Card(
                 dbc.CardBody([
-                    html.H4(id='student-name', className='StudentName', style={'text-align': 'center'}),
-                    html.Img(id='student-image', className='Image', style={'width': '100%', 'height': 'auto'}),
+                   
+                    html.Img(id='student-image', className='Image', style={'width': '100%',}),
                     html.H6(id='final-average', className='FinalAverage', style={'text-align': 'center'})
                 ]),
                 className='Image card'
@@ -36,13 +39,18 @@ def create_layout(df):
                 ),
                 className='Summary-Chart card'
             ),
-            html.Div(
-                className='Subjects',
-                children=[
-                    html.Div(dropdowns.create_subject_dropdown(), className='Subjects-Dropdown'),
-                    html.Div(tables.create_exam_results_table(), className='Subject-Table'),
-                    html.Div(dcc.Graph(id='exam-results-chart'), className='Subjects-Chart')
-                ]
-            )
+          dbc.Card(
+                dbc.CardBody(
+                    html.Div(
+                        className='Subjects',
+                        children=[
+                            html.Div(dropdowns.create_subject_dropdown(), className='Subjects-Dropdown'),
+                            html.Div(tables.create_exam_results_table(), className='Subject-Table'),
+                            html.Div(dcc.Graph(id='exam-results-chart'), className='Subjects-Chart')
+                        ]
+                    )
+                ),
+                className='Subjects card'
+          )
         ]
     )

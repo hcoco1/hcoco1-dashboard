@@ -48,7 +48,8 @@ def create_exam_results_table():
     return dash_table.DataTable(
         id='exam-results-table',
         columns=[
-            
+            {"name": "Student", "id": "Name"},
+            {"name": "Grade", "id": "Year"},
             {"name": "Exam 1", "id": "Exam 1"},
             {"name": "Exam 2", "id": "Exam 2"},
             {"name": "Exam 3", "id": "Exam 3"}

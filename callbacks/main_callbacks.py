@@ -16,7 +16,7 @@ def register_callbacks(app, df):
 
     @app.callback(
         [Output('student-image', 'src'),
-         Output('student-name', 'children'),
+        
          
          Output('final-average', 'children')],
         [Input('student-dropdown', 'value')]
@@ -27,10 +27,10 @@ def register_callbacks(app, df):
         filtered_df = df[df['Name'] == selected_student]
         if not filtered_df.empty:
             image_url = filtered_df['Image URL'].values[0] if 'Image URL' in filtered_df.columns else 'https://via.placeholder.com/300'
-            student_name = selected_student
+            
             
             final_average = f"Final Average: {filtered_df['Final Average'].values[0]}"
-            return image_url, student_name, final_average
+            return image_url, final_average
         return 'https://via.placeholder.com/300', selected_student, "Average Grade: N/A", "Final Average: N/A"
 
     @app.callback(
@@ -65,23 +65,20 @@ def register_callbacks(app, df):
     )
     def update_exam_results(selected_student, selected_grade, selected_subject):
         if selected_student is None or selected_grade is None or selected_subject is None:
-            print("One of the dropdowns is not selected.")  # Debug statement
             return [], [], px.line(title='Please select all dropdowns.')
 
         filtered_df = df[(df['Name'] == selected_student) & (df['Year'] == selected_grade)]
         if filtered_df.empty:
-            print(f"No data for {selected_student} in Grade {selected_grade} for {selected_subject}")  # Debug statement
             return [], [], px.line(title=f'No data for {selected_student} in Grade {selected_grade} for {selected_subject}')
 
         exam_columns = [f"{selected_subject} Exam 1", f"{selected_subject} Exam 2", f"{selected_subject} Exam 3"]
-        print(f"Exam Columns: {exam_columns}")  # Debug statement
-        print(f"Filtered Data Columns: {filtered_df.columns}")  # Debug statement
-        if any(col not in filtered_df.columns for col in exam_columns):
-            print(f"No exam data available for {selected_subject}")  # Debug statement
-            return [], [], px.line(title=f'No exam data available for {selected_subject}')
-
         exam_data = filtered_df[exam_columns].to_dict('records')
         exam_columns_formatted = [{"name": col, "id": col} for col in exam_columns]
-        print(f"Filtered Data for Exam Results Table: {exam_data}")  # Debug statement
+
+        # Add Name and Year to each exam result record
+        for record in exam_data:
+            record['Name'] = selected_student
+            record['Year'] = selected_grade
+
         subject_chart = graphs.create_exam_results_chart(df, selected_student, selected_grade, selected_subject)
         return exam_columns_formatted, exam_data, subject_chart
