@@ -17,19 +17,21 @@ def register_callbacks(app, df):
     @app.callback(
         [Output('student-image', 'src'),
          Output('student-name', 'children'),
-         Output('student-average', 'children')],
+         
+         Output('final-average', 'children')],
         [Input('student-dropdown', 'value')]
     )
     def update_student_info(selected_student):
         if selected_student is None:
-            return 'https://via.placeholder.com/300', '', "Average Grade: N/A"
+            return 'https://via.placeholder.com/300', '', "Average Grade: N/A", "Final Average: N/A"
         filtered_df = df[df['Name'] == selected_student]
         if not filtered_df.empty:
-            image_url = filtered_df['Image URL'].values[0]
+            image_url = filtered_df['Image URL'].values[0] if 'Image URL' in filtered_df.columns else 'https://via.placeholder.com/300'
             student_name = selected_student
-            student_average = f"Average Grade: {filtered_df['Grade Average'].values[0]}"
-            return image_url, student_name, student_average
-        return 'https://via.placeholder.com/300', selected_student, "Average Grade: N/A"
+            
+            final_average = f"Final Average: {filtered_df['Final Average'].values[0]}"
+            return image_url, student_name, final_average
+        return 'https://via.placeholder.com/300', selected_student, "Average Grade: N/A", "Final Average: N/A"
 
     @app.callback(
         Output('summary-table', 'data'),

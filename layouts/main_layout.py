@@ -18,11 +18,11 @@ def create_layout(df):
                     dropdowns.create_grade_dropdown(df)
                 ]
             ),
-            dbc.Card(
+           dbc.Card(
                 dbc.CardBody([
                     html.H4(id='student-name', className='StudentName', style={'text-align': 'center'}),
                     html.Img(id='student-image', className='Image', style={'width': '100%', 'height': 'auto'}),
-                    html.H6(id='student-average', className='StudentAverage', style={'text-align': 'center'})
+                    html.H6(id='final-average', className='FinalAverage', style={'text-align': 'center'})
                 ]),
                 className='Image card'
             ),

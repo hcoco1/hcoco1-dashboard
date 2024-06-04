@@ -30,6 +30,7 @@ def create_summary_table(df):
             'padding': '5px',
             'whiteSpace': 'normal',
             'height': 'auto',
+            'textAlign': 'center'
         },
         style_data={
             'color': 'black',
@@ -47,6 +48,7 @@ def create_exam_results_table():
     return dash_table.DataTable(
         id='exam-results-table',
         columns=[
+            
             {"name": "Exam 1", "id": "Exam 1"},
             {"name": "Exam 2", "id": "Exam 2"},
             {"name": "Exam 3", "id": "Exam 3"}
@@ -55,7 +57,7 @@ def create_exam_results_table():
         page_size=10,
         style_table={'overflowX': 'auto'},
         style_header={
-            'backgroundColor': 'rgb(230, 230, 230)',
+            'backgroundColor': 'rgb(230, 130, 230)',
             'fontWeight': 'bold',
             'textAlign': 'center'
         },
@@ -64,6 +66,7 @@ def create_exam_results_table():
             'padding': '5px',
             'whiteSpace': 'normal',
             'height': 'auto',
+            'textAlign': 'center'
         },
         style_data={
             'color': 'black',

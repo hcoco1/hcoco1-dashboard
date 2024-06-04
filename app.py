@@ -37,6 +37,17 @@ for subject in subjects:
 # Calculate the final grade average across all subjects
 df["Grade Average"] = df[subjects].mean(axis=1).round(0)
 
+# Calculate the final average across all years for each student
+final_averages = df.groupby('Name')[['Grade Average']].mean().round(2).reset_index()
+final_averages.columns = ['Name', 'Final Average']
+
+# Merge final averages back into the main dataframe
+df = pd.merge(df, final_averages, on='Name')
+
+# Check if 'Image URL' column exists, if not, add a placeholder
+if 'Image URL' not in df.columns:
+    df['Image URL'] = 'https://via.placeholder.com/300'
+
 # Prepare the summary table with only final grades
 summary_df = df[
     ["Name", "Year", "Image URL"] + subjects + ["Grade Average"]
