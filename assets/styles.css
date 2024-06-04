@@ -2,7 +2,7 @@
 .container {
     display: grid;
     grid-template-columns: repeat(11, 1fr);
-    grid-template-rows: 0.1fr 0.2fr 0.2fr 0.8fr 0.2fr 0.2fr 0.1fr;
+    grid-template-rows: auto;
     grid-template-areas: 
         "Title Title Title Title Title Title Title Title Title Image Image"
         "DropdownMenus DropdownMenus DropdownMenus DropdownMenus DropdownMenus DropdownMenus DropdownMenus DropdownMenus DropdownMenus Image Image"
@@ -23,7 +23,7 @@
 .DropdownMenus {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-rows: auto;
     grid-template-areas: 
         "Language-Dropdown Student-Dropdown Grade-dropdown"
         "Language-Dropdown Student-Dropdown Grade-dropdown"
@@ -39,7 +39,7 @@
 .Subjects {
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: 0.1fr;
+    grid-template-rows:auto;
     grid-template-areas: 
         "Subjects-Dropdown"
         "Subject-Table"
