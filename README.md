@@ -17,20 +17,20 @@
 
 This project creates an interactive dashboard to visualize and analyze the grades of high school students over time. The dashboard is built using Python, Dash, and Plotly, with Bootstrap for styling.
 
-- Notice:
-Username: **hcoco1**
+- Username: **hcoco1**
 
-Password: **pythonpython**
+- Password: **pythonpython**
 
 This dashboard is designed for both English and Spanish speakers and is currently being translated.
 
 Features
-Student Selection: Choose a student from a dropdown to view their grades.
-Year Selection: Filter grades by academic year.
-Subject Performance: View performance in different subjects.
-Grade Average: See the average grade for each student.
-Detailed Exam Scores: Examine scores for individual exams.
-Performance Over Time: Visualize performance trends across multiple exams.
+
+- Student Selection: Choose a student from a dropdown to view their grades.
+- Year Selection: Filter grades by academic year.
+- Subject Performance: View performance in different subjects.
+- Grade Average: See the average grade for each student.
+- Detailed Exam Scores: Examine scores for individual exams.
+- Performance Over Time: Visualize performance trends across multiple exams.
 
 ---
 
