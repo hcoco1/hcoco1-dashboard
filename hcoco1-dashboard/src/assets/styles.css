@@ -41,13 +41,13 @@
     grid-template-columns: 1fr;
     grid-template-rows:auto;
     grid-template-areas: 
-        "Subjects-Dropdown"
+        "Subjects-Dropdown_card"
         "Subject-Table"
         "Subjects-Chart";
     gap: 10px;
     grid-area: Subjects;
 }
-.Subjects-Dropdown { grid-area: Subjects-Dropdown; }
+.Subjects-Dropdown_card { grid-area: Subjects-Dropdown; }
 .Subject-Table { grid-area: Subject-Table; }
 .Subjects-Chart { grid-area: Subjects-Chart; }
 .Image { grid-area: Image; }
@@ -85,7 +85,7 @@
         grid-template-columns: 1fr;
         grid-template-rows: auto;
         grid-template-areas: 
-            "Subjects-Dropdown"
+            "Subjects-Dropdown_card"
             "Subject-Table"
             "Subjects-Chart";
     }

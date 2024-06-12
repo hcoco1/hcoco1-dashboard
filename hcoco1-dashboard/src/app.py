@@ -6,6 +6,8 @@ import pandas as pd
 
 # Initialize the Dash app with Bootstrap theme
 app = dash.Dash(__name__, external_stylesheets=[dbc.themes.BOOTSTRAP])
+server = app.server
+
 
 # Read data from Excel file
 df = pd.read_excel('data.xlsx')
