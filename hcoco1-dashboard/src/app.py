@@ -10,8 +10,8 @@ server = app.server
 
 
 # Read data from Excel file
-df = pd.read_excel('data.xlsx')
-#df = pd.read_excel('https://raw.githubusercontent.com/hcoco1/dashboards-data/9da8e1be15f92c55dc9e9805be8caf955f938f1b/data.xlsx')
+#df = pd.read_excel('data.xlsx')
+df = pd.read_excel('https://raw.githubusercontent.com/hcoco1/dashboards-data/9da8e1be15f92c55dc9e9805be8caf955f938f1b/data.xlsx')
 
 
 # Ensure grades are numeric
