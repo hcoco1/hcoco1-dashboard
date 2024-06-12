@@ -3,8 +3,8 @@ services:
     name: beam-skyline-voyage-71l1 # The name of the service
     env: python                    # Environment type
     plan: free                     # Plan type
-    buildCommand: "pip install -r requirements.txt" # Command to install dependencies
-    startCommand: "gunicorn --chdir src app:server" # Command to start the server
+    buildCommand: pip install -r requirements.txt   # Command to install dependencies
+    startCommand: gunicorn --chdir src app:server   # Command to start the server
     envVars:
       - key: PYTHON_VERSION
         value: 3.10.0              # Python version to be used
