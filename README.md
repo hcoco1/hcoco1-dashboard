@@ -32,6 +32,10 @@ Grade Average: See the average grade for each student.
 Detailed Exam Scores: Examine scores for individual exams.
 Performance Over Time: Visualize performance trends across multiple exams.
 
+---
+
+![how this app works](https://github.com/hcoco1/hcoco1-dashboard/blob/main/dash_app.gif?raw=true) 
+ 
+---
 
 
-(https://github.com/hcoco1/hcoco1-dashboard/raw/main/dash_app.gif)
